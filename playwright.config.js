@@ -14,10 +14,12 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
-  timeout : 100 * 1000,
+  timeout : 60000,
   expect : {
-    timeout : 30*1000
+    timeout : 50000
+    
   },
+  
   /* Run tests in files in parallel */
 
 
@@ -34,7 +36,7 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
-
+     //10 sec
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
 
@@ -48,7 +50,10 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
-   
+     module.exports = {
+      
+       timeout: 60000, // Sets the global timeout to 60 seconds
+     },
 
     // {
     //   name: 'webkit',
