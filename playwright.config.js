@@ -1,5 +1,6 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
+import { chromium, defineConfig, devices } from '@playwright/test';
+import { on } from 'events';
 
 /**
  * Read environment variables from file.
@@ -14,7 +15,8 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
-  timeout : 60000,
+  retries : 1,
+  timeout : 60 * 10000,
   expect : {
     timeout : 50000
     
@@ -27,7 +29,7 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+ // retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
@@ -47,13 +49,26 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+     // use: { ...devices['Desktop Chrome'] },
+       use :{
+          browse : chromium,
+          headless : false,
+          screenshot : 'on',
+          trace : 'retain-on-failure',
+       }
     },
 
      module.exports = {
       
        timeout: 60000, // Sets the global timeout to 60 seconds
+
+
      },
+           
+
+
+     
+    
 
     // {
     //   name: 'webkit',
