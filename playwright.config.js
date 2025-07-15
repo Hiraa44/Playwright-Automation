@@ -21,6 +21,7 @@ export default defineConfig({
     timeout : 50000
     
   },
+
   
   /* Run tests in files in parallel */
 
@@ -110,7 +111,7 @@ export default defineConfig({
   //   url: 'http://localhost:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
-  
+
 });
 
 

@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/Hiraa44/Playwright-Automation#readme",
   "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
     "@playwright/test": "^1.54.0",
     "@types/node": "^24.0.1",
+    "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.3.0"
   }
 }
